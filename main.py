@@ -1,19 +1,20 @@
 import interface
+import time
 
 WAIT_AFTER_SOIL_MOISTURE = 10
-WAIT_AFTER_AIR_HUMIDITY = 1
-WAIT_AFTER_SOIL_TEMP = 1
-WAIT_AFTER_AIR_TEMP = 1
+WAIT_AFTER_AIR_HUMIDITY = 10
+WAIT_AFTER_SOIL_TEMP = 15
+WAIT_AFTER_AIR_TEMP = 15
 
-while True:
-    interface.actOnSoilMoisture(getSoilMoisture())
+while True: #contininously call methods in the order of importance
+    interface.actOnSoilMoisture(interface.getSoilMoisture())
     time.sleep(WAIT_AFTER_SOIL_MOISTURE)
     
-    interface.actOnAirHumidity(getAirHumidity())
+    interface.actOnAirHumidity(interface.getAirHumidity())
     time.sleep(WAIT_AFTER_AIR_HUMIDITY)
     
-    interface.actOnSoilTemp(getSoilTemp())
+    interface.actOnSoilTemp(interface.getSoilTemp())
     time.sleep(WAIT_AFTER_SOIL_TEMP)
     
-    interface.actOnAirTemp(getAirTemp())
+    interface.actOnAirTemp(interface.getAirTemp())
     time.sleep(WAIT_AFTER_AIR_TEMP)

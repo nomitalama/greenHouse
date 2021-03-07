@@ -1,6 +1,7 @@
 import bme280
 import soilMoisture
 import relayBoard
+import time
 
 #get all the sensor data
 def getSoilMoisture():
@@ -47,7 +48,7 @@ def actOnAirTemp(airTemp):
             relayBoard.changeFanInState(0)#Turn fanIn off
             relayBoard.changeFanOutState(0)#Turn fanOut off
                                
-def actOnSoilMoisture(soilMoisture): #GET real data
+def actOnSoilMoisture(soilMoisture):
       if soilMoisture < 450 or soilMoisture > 650:
         if soilMoisture < 450:#IF DRY
             relayBoard.changeSprinklersState(1)#Turn sprinkers ON
